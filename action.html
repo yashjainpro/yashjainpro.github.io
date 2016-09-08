@@ -16,7 +16,7 @@
 	
 	 if(mysql_query($query)){
 		
-		header('location:index.php');
+		header('location:index.html');
 	 }
 	 else
 	 {
@@ -45,7 +45,7 @@
 	}
 	else{
 	$_SESSION['error_login']="INCORRECT USERNAME";
-	header('location:index.php');
+	header('location:index.html');
 	
 }
 
@@ -61,7 +61,7 @@ if(isset($_GET['id'])){
 	if(mysql_query($query)){
 		$_SESSION['abc']="Request Sent ";
 	
-		header('location:userlist.php');
+		header('location:userlist.html');
 	}
 }
  if(isset($_GET['cid'])){
@@ -70,7 +70,7 @@ if(isset($_GET['id'])){
 	
 	$query11="delete  from friendreq where toid=$toidd and status='pending'";
 	mysql_query($query11);
-	header('location:userlist.php');
+	header('location:userlist.html');
 }
  if(isset($_POST['edit'])){
 	 $test=$_POST;
@@ -88,7 +88,7 @@ if(isset($_GET['id'])){
  $query22="UPDATE register SET first_name='$fname', last_name='$lname',gender='$gen',abt_u='$abt_u',password= '$password',date_of_birth='$db',email='$email',mob_no='$mob',address='$add',school_or_college='$stud'WHERE id='$x'";
 
 	mysql_query($query22);
-	header('location:timeline.php');
+	header('location:timeline.html');
 	 
  }
   if(isset($_POST['post'])){
@@ -97,7 +97,7 @@ if(isset($_GET['id'])){
 	  $mess=$data['message'];
 	  $query="insert into post values('','$pid','$mess')"; 
 	if(mysql_query($query)){
-	  header('location:cover.php');
+	  header('location:cover.html');
 	  }
   }
    if(isset($_POST['img'])){
@@ -110,7 +110,7 @@ $x=$_SESSION['login_id'];
 $queryy="UPDATE register SET img='$d' where id=$x";	
 	if(mysql_query($queryy))
 	{
-       header('location:timeline.php');
+       header('location:timeline.html');
 	    
 	}
 }
@@ -125,7 +125,7 @@ $queryy="UPDATE register SET img='$d' where id=$x";
 		$sid=$_SESSION['login_id'];
 		$query="insert into message values('','$rid','$sid','$message')";
 	if(mysql_query($query)){
-	  header('location:messages.php?mid='.$rid);
+	  header('location:messages.html?mid='.$rid);
 	  }
     
    }
